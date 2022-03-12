@@ -1,4 +1,4 @@
-# Module to Block Russian and Belarussian users during the Ukranian Invasion
+# Module to Block Russian and Belarusian users during the Ukranian Invasion
 
 > # #TechForUkraine
 > <div align="center">

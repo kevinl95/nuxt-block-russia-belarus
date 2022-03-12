@@ -1,7 +1,7 @@
 {
   "name": "nuxt-block-russia-belarus",
   "version": "1.0.0",
-  "description": "Block Russian and Belarussian users during the Ukrainian invasion",
+  "description": "Block Russian and Belarusian users during the Ukrainian invasion",
   "license": "MIT",
   "repository": "https://github.com/kevinl95/vuestorefront-block-russia-belarus",
   "main": "lib/module.js",
