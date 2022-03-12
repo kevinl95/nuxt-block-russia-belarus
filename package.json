@@ -1,14 +1,14 @@
 {
-  "name": "nuxt-youtube-subscribe-module",
-  "version": "0.1.2",
-  "description": "Youtube Subscribe Module for Nuxt.js",
+  "name": "nuxt-block-russia-belarus",
+  "version": "1.0.0",
+  "description": "Block Russian and Belarussian users during the Ukrainian invasion",
   "license": "MIT",
-  "repository": "https://github.com/jualoppaz/nuxt-youtube-subscribe-module",
+  "repository": "https://github.com/kevinl95/vuestorefront-block-russia-belarus",
   "main": "lib/module.js",
   "author": {
-    "name": "Juan Manuel López Pazos",
-    "email": "juanmalp1992@gmail.com",
-    "url": "http://www.juanmanuellopezpazos.es"
+    "name": "Kevin Loeffler",
+    "email": "kevinmloeffler@gmail.com",
+    "url": "http://www.kevinloeffler.com"
   },
   "publishConfig": {
     "access": "public"
@@ -37,17 +37,15 @@
     "jest": "26.6.3"
   },
   "keywords": [
-    "Youtube",
-    "Google",
     "Nuxt",
     "NuxtJS",
     "Nuxt.js",
-    "SSR",
     "Vue",
+    "Storefront",
     "VueJS",
     "Vue2",
-    "VueRouter",
-    "vue-router",
-    "Web"
+    "Ukraine",
+    "Russia",
+    "Belarus"
   ]
 }
