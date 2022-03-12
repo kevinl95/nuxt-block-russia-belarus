@@ -1,0 +1,16 @@
+<script type="application/javascript">
+    var config = {
+        customMessage: "{{ customMessage }}",
+        oncePerDay: {{oncePerDay}},
+        alsoBlockBelarussian: {{blockBelarus}}
+    };
+    if ({{redirectToUkrainianAnthem}}) {
+        RussianBlocker.redirectToUkrainianAnthem(config);
+    }
+    if ({{redirectToRussianGovernmentComplaints}}) {
+        RussianBlocker.redirectToRussianGovernmentComplaints(config);
+    }
+    if ({{displayAlert}}) {
+        RussianBlocker.alert(config);
+    }
+</script>
