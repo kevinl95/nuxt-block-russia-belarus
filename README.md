@@ -35,127 +35,55 @@ This nuxt module is a wrapper of [OB42's Russia Blocker.](https://github.com/OB4
 
 ## ✍🏻 Motivation
 
-This module is the result of the need of add a Youtube subscribe button in one of my multiple web applitacions. After google it I only was able to find the [official Youtube Subscribe Button](https://developers.google.com/youtube/subscribe), but it only works well in simple JS applications or fullstack ones made with CMS like WordPress, Drupal and more.
-
-As I didn't find any solution for vue apps, I decided to develop this module for nuxt because is the Vue framework I am using majority.
-
-I hope this module be very usefull for so many people with same need than me.
+Companies, NGOs, and individuals around the world have condemned the violence against the Ukranian people. One way they are doing this is blocking services to Russian users while the Ukranian invasion is ongoing. This Nuxt.js module makes it simple to block users from Russia and Belarus from your site, such as your Vue Storefront store. We identify users from these countries using fingerprints from their web browser. You can configure this module to redirect users to the Ukranian National Anthem on YouTube, to a Russian government complaint form, or soft-block users by presenting an alert window over your website with a custom message. Users can choose to only block/alert these users once per day or on every visit using a cookie. Users can selectively disable this behavior for users from Belarus if they choose, however by default users from Belarus are also detected.
 
 ## 🧱 Install
 
-You must add `nuxt-youtube-subscribe-module` dependency using **yarn** or **npm** to your project
+You must add `nuxt-block-russia-belarus` dependency using **yarn** or **npm** to your project
 
 ```
-$ npm install nuxt-youtube-subscribe-module --save
+$ npm install nuxt-block-russia-belarus --save
 ```
 
 or
 
 ```
-$ yarn add nuxt-youtube-subscribe-module
+$ yarn add nuxt-block-russia-belarus
 ```
 
 ## ⚙️ Config
 
-You have to add `nuxt-youtube-subscribe-module` to `modules` section of `nuxt.config.js`
+You have to add `nuxt-block-russia-belarus` to the `modules` section of `nuxt.config.js`
 
 ```js
 // nuxt.config.js
 {
   ...,
   modules: [
-    'nuxt-youtube-subscribe-module'.
+    'nuxt-block-russia-belarus'.
   ],
   ...,
 }
 ```
-
-If you want to use the module options you have two ways of doing this:
-
-```js
-// nuxt.config.js
-// Simple usage
-{
-  ...,
-  modules: [
-    ['nuxt-youtube-subscribe-module', {
-      tag: 'YoutubeSubscribeButton'
-    }]
-  ],
-  ...,
-}
-```
-
-```js
-// nuxt.config.js
-// Using top level options
-{
-  ...,
-  modules: [
-    'nuxt-youtube-subscribe-module'
-  ],
-  ...,
-  'youtube-subscribe': {
-    tag: 'YoutubeSubscribeButton'
-  },
-  ...,
-}
-```
-
-**Configuration options**
-
-| Option | type |  description
-| -------- | ---- | -----------
-| `tag` | String | **Optional**. Desired name for the component used to embed the Youtube subscribe button. Defaults to `youtube-subscribe-button`.
 
 ## ▶️ Usage
 
-For using this module you only have to add the `<youtube-subscribe-button>` tag in the desired location.
+Next, you need to add the `<russia-blocker>` tag in the body tag of your page.
 
-**Example 1**: Same that official docs shows by default
+By default this will redirect users from Russia and Belarus to the Ukranian National Anthem on YouTube. You can choose the other options by adding the following component properties to your configuration:
 
-```html
-<!-- view.html -->
-<youtube-subscribe-button
-  identifier="my-subscribe-button"
-  channel="GoogleDevelopers"
-></youtube-subscribe-button>
-```
-
-**Example 2**: Official docs example with all options
+**Example**:
 
 ```html
 <!-- view.html -->
 <youtube-subscribe-button
-  identifier="my-subscribe-button"
-  channel="GoogleDevelopers"
-  layout="full"
-  theme="dark"
+  blockBelarus: True,
+  redirectToUkrainianAnthem: True,
+  redirectToRussianGovernmentComplaints: False,
+  displayAlert: False,
+  oncePerDay: False,
+  customMessage: "протестуйте против войны!"
 ></youtube-subscribe-button>
-```
-
-**Example 3**: Custom options
-
-```js
-// nuxt.config.js
-{
-  ...,
-  modules: [
-    ['nuxt-youtube-subscribe-module', {
-      tag: 'YoutubeSubscribeButton'
-    }]
-  ],
-  ...,
-}
-```
-
-```html
-<!-- view.html -->
-<YoutubeSubscribeButton
-  identifier="my-subscribe-button"
-  channel="GoogleDevelopers"
-  layout="full"
-></YoutubeSubscribeButton>
 ```
 
 **Component props:**
