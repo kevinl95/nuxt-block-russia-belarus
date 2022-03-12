@@ -76,15 +76,16 @@ By default this will redirect users from Russia and Belarus to the Ukranian Nati
 
 ```html
 <!-- view.html -->
-<youtube-subscribe-button
+<russia-blocker
   blockBelarus: True,
   redirectToUkrainianAnthem: True,
   redirectToRussianGovernmentComplaints: False,
   displayAlert: False,
   oncePerDay: False,
   customMessage: "протестуйте против войны!"
-></youtube-subscribe-button>
+></russia-blocker>
 ```
+The above custom message translates to "Protest the war!"- if it does not please open an issue and let me know!
 
 **Component props:**
 
