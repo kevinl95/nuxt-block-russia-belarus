@@ -31,7 +31,7 @@
 >   </div>
 > </div>
 
-This nuxt module is a wrapper of [OB42's Russia Blocker.](https://github.com/OB42/RussianBlocker).
+This nuxt module is a wrapper of [OB42's Russia Blocker.](https://github.com/OB42/RussianBlocker)
 
 ## ✍🏻 Motivation
 
