@@ -77,11 +77,11 @@ By default this will redirect users from Russia and Belarus to the Ukranian Nati
 ```html
 <!-- view.html -->
 <russia-blocker
-  blockBelarus: True,
-  redirectToUkrainianAnthem: True,
-  redirectToRussianGovernmentComplaints: False,
-  displayAlert: False,
-  oncePerDay: False,
+  blockBelarus: True
+  redirectToUkrainianAnthem: True
+  :redirectToRussianGovernmentComplaints="false"
+  :displayAlert="false"
+  :oncePerDay="false"
   customMessage: "протестуйте против войны!"
 ></russia-blocker>
 ```
@@ -91,24 +91,20 @@ The above custom message translates to "Protest the war!"- if it does not please
 
 | prop | type | description
 | ---- | ---- | -----------
-| `identifier` | String | **Required**. Unique string to be used as id in the subscribe button.
-| `channelid` | String | **Required conditionally** if no channel is present. Unique string that identifies the **Youtube** channel used to the subscribe button.
-| `channel` | String | **Required conditionally** if no channelid is present. Unique string that identifies the **Youtube** channel used to the subscribe button.
-| `layout` | String | **Optional**. Desired layout for the subscribe button. Available values are `default` and `full`. Defaults to `default`.
-| `theme` | String | **Optional**. Desired theme for the subscribe button. Available values are ` ` (empty string) and `dark`. Defaults to ` `.
-| `count` | String | **Optional**. For indicate the visibility of subscribers count. Available values are `default` and `hidden`. Defaults to `default`.
+| `blockBelarus` | Boolean | **Optional**. Block users from Belarus, which has participated in the invasion. This is True by default.
+| `redirectToUkrainianAnthem` | Boolean | **Optional** Redirect blocked users to a video of the Ukranian National Anthem on YouTube. This is the default behavior.
+| `redirectToRussianGovernmentComplaints` | Boolean | **Optional** Redirect users to a complaint form on the Russian government's website. If you set this to True, you should set redirectToUkrainianAnthem to False.
+| `displayAlert` | Boolean | **Optional**. Soft block users by displaying a popup alert that they can dismiss. This alert box can contain a custom message, but default says "Protest the war" in Russian.
+| `oncePerDay` | Boolean | **Optional**. Set a cookie to only block users once per day. This is false by default.
+| `customMessage` | String | **Optional**. This lets you set a custom message for the alert box that appears. By default this is set to "Protest the war" in Russian.
 
 ## How does this module work❓
 
 **Module** (when app starts)
-1. The module overwrites all default options with the given ones.
-2. The module loads the plugin with the `YoutubeSubscribeButton` global Vue component.
-3. The module loads the Google JavaScript API.
-4. The `youtube-subscribe:gapi-loaded` custom event is fired for very quick components.
+1. The module loads RussianBlocker.js from a CDN.
+2. The module is loaded and a Vue component called `russia-blocker` is made available.
 
-**YoutubeSubscribeButton** (when component is used)
-1. The component validates all props.
-2. All component options are collected.
-3. The subscribe button is rendered through `render` gapi (Google API) method if available.
-4. A listener for `youtube-subscribe:gapi-loaded` custom event is registered for a second retry for display the subscribe button.
-5. The subscribe button is rendered after fired from `youtube-subscribe:gapi-loaded` listener callback.
+**russia-blocker component**
+1. The component checks properties set by the user
+2. The component checks the time zone and language set in the user's browser
+3. If the user is in Russia or Belarus (optional) the blocking behavior the component is configured for is applied.
