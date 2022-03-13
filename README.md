@@ -60,7 +60,7 @@ You have to add `nuxt-block-russia-belarus` to the `modules` section of `nuxt.co
 {
   ...,
   modules: [
-    'nuxt-block-russia-belarus'.
+    'nuxt-block-russia-belarus'
   ],
   ...,
 }
